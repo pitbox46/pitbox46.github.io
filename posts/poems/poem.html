@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <base href = "../..">
+		
+		<title id="web_titleID">null</title>
+		
+		<link rel="stylesheet" href="assets/styles/main.css">
+    
+    </head>
+    <body>
+        <!-- Header to be filled in via javascript -->
+        <div class="header" id="headerID"></div>
+
+        <div id="poem" class="poem">
+            <h1 id="poem_titleID">untitled</h1>
+            <h4 id="dateID">null</h4>
+            <p id="poem_contentID">we are so alone
+                drifting in space
+                maybe in orbit
+                maybe crashing down
+                
+                we may never collide
+                
+                but if we do...
+                love.
+            </p>
+        </div>
+
+        <script type="text/javascript" src="assets/js/header.js"></script>
+        <script>
+            var TITLE = "untitled"
+            var DATE = "July 12, 2022"
+    
+            window.onload = function() {
+                const url = new URL(window.location.toLocaleString())
+                const number = url.searchParams.get('number')
+
+                var location = window.location.href;
+                var directoryPath = location.substring(0, location.lastIndexOf("/")+1) + '1.json';
+                console.log(directoryPath)
+
+                fetch(directoryPath + '1.json')
+                    .then(response => response.text())
+                    .then(text => console.log(text))
+
+                document.getElementById("web_titleID").innerHTML = TITLE + " - " + DATE
+                document.getElementById("poem_titleID").innerHTML = TITLE
+                document.getElementById("dateID").innerHTML = DATE
+                loadHeaders();
+            }
+        </script>
+    </body>
+</html>
