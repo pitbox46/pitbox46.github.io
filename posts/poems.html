@@ -14,7 +14,7 @@
         <div class="header" id="headerID"></div>
 
         <div class="post">
-            <ul style="list-style-type: none;">
+            <ul style="list-style-type: none;" id="poem_listID">
                 <li>1 - <a href="posts/poems/1.html">untitled - <i>July 12, 2022</i></a></li>
                 <li>3 - <a href="posts/poems/3.html">untitled - <i>July 16, 2022</i></a></li>
                 <li>5 - <a href="posts/poems/5.html">Apartment 151a - <i>July 23, 2022</i></a></li>
@@ -24,7 +24,37 @@
 
         <script type="text/javascript" src="assets/js/header.js"></script>
         <script>
+            var directoryPath = "https://raw.githubusercontent.com/pitbox46/pitbox46.github.io/main/posts/poems/";
+
             window.onload = function() {
+                fetch(directoryPath + "directory.json")
+                    .then(response => response.json())
+                    .then(json => {
+                        json.forEach(poemNum => {
+                            fetch(directoryPath + poemNumber + ".json")
+                                .then(response => response.json())
+                                .then(json => {
+                                    TITLE = json.title;
+                                    DATE = new Date(json.date).toLocaleDateString('default', {
+                                        month:'long',
+                                        day:'numeric',
+                                        year:"numeric",
+                                        timeZone:"UTC"
+                                    });
+                                    var list = document.getElementById("poem_listID");
+                                    var anchor = document.createElement("a");
+                                    var italic = document.createElement("i");
+                                    italic.innerHTML = DATE;
+                                    anchor.setAttribute("href", "posts/poems/poem.html?number="+poemNum);
+                                    anchor.innerHTML = TITLE + " - ";
+                                    anchor.appendChild(italic);
+                                    var element = document.createElement("li");
+                                    element.innerHTML = poemNum + " - ";
+                                    element.appendChild();
+                                    list.appendChild(element);
+                                });
+                        });
+                    });
                 loadHeaders();
             }
         </script>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <base href = "../..">
+        <base href = "../">
 		
 		<title id="web_titleID">null</title>
 		
@@ -17,16 +17,7 @@
         <div id="poem" class="poem">
             <h1 id="poem_titleID">untitled</h1>
             <h4 id="dateID">null</h4>
-            <p id="poem_contentID">we are so alone
-                drifting in space
-                maybe in orbit
-                maybe crashing down
-                
-                we may never collide
-                
-                but if we do...
-                love.
-            </p>
+            <p id="poem_contentID">null</p>
         </div>
 
         <script type="text/javascript" src="assets/js/header.js"></script>
@@ -38,25 +29,27 @@
                 const url = new URL(window.location.toLocaleString());
                 const poemNumber = url.searchParams.get('number');
 
-                var location = window.location.href;
                 var directoryPath = "https://raw.githubusercontent.com/pitbox46/pitbox46.github.io/main/posts/poems/";
-                console.log(directoryPath);
-
                 fetch(directoryPath + poemNumber + ".json")
                     .then(response => response.json())
                     .then(json => {
-                        TITLE = json.title
+                        TITLE = json.title;
                         DATE = new Date(json.date).toLocaleDateString('default', {
                             month:'long',
                             day:'numeric',
-                            year:"numeric"
-                        })
-                        console.log(json)
+                            year:"numeric",
+                            timeZone:"UTC"
+                        });
                         document.getElementById("web_titleID").innerHTML = TITLE + " - " + DATE;
                         document.getElementById("poem_titleID").innerHTML = TITLE;
                         document.getElementById("dateID").innerHTML = DATE;
+                        document.getElementById("poem_contentID").innerHTML = parseJsonPoem(json)
                     });
                 loadHeaders();
+            }
+
+            function parseJsonPoem(json) {
+                return json.poem.join("\n")
             }
         </script>
     </body>
