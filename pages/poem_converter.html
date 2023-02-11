@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <base href = "../">
+		
+		<title id="web_titleID">Convert Poem to HTML</title>
+		
+		<link rel="stylesheet" href="assets/styles/main.css">
+    </head>
+    <body>
+        <!-- Header to be filled in via javascript -->
+        <div class="header" id="headerID"></div>
+
+        <div>
+            <p>
+                Converts a markdown poem to the JSON format that I use.
+            </p>
+        </div>
+        <div>
+            <label for="number">Number</label>
+            <br>
+            <input type="text" value id="number" name="number"/>
+            <br>
+            <label for="title">Title</label>
+            <br>
+            <input type="text" value id="title" name="title"/>
+            <br>
+            <label for="date">Date</label>
+            <br>
+            <input type="text" value id="date" name="date"/>
+            <br>
+            <label for="author">Author</label>
+            <br>
+            <input type="text" value="Mason Griswold" id="author" name="author"/>
+            <br>
+            <label for="poem">Poem</label>
+            <br>
+            <textarea id="poem" name="poem" rows="25" cols="50"></textarea>
+            <br>
+            <input type="button" value="Convert" onclick="htmlTextConvert()">
+
+            <p id="output"></p>
+        </div>
+
+        <script type="text/javascript" src="assets/js/header.js"></script>
+        <script>
+            window.onload = function() {
+                loadHeaders();
+            }
+
+            function htmlTextConvert() {
+                var json = convertPoemToJson(
+                    document.getElementById("number").value,
+                    document.getElementById("title").value,
+                    document.getElementById("date").value,
+                    document.getElementById("poem").value,
+                    document.getElementById("author").value
+                );
+                console.log(json);
+                var jsonString = JSON.stringify(json);
+                document.getElementById("output").innerHTML = jsonString;
+                navigator.clipboard.writeText(jsonString);
+            }
+
+            function convertPoemToJson(number, title, date, poem, author) {
+                if(author === undefined) {
+                    author = "Mason Griswold";
+                }
+                var json = new Object();
+                json.number = number;
+                json.title = title;
+                json.author = author;
+                json.date = date;
+                var lines = poem.replace(/  /g, "").split("\n");
+                json.poem = lines;
+                return json;
+            }
+        </script>
+    </body>
+</html>
