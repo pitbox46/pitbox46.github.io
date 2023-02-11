@@ -5,24 +5,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <base href = "../..">
 		
-		<title>Apartment 151a - July 23, 2022</title>
+		<title id="web_titleID">null</title>
 		
 		<link rel="stylesheet" href="assets/styles/main.css">
+    
     </head>
     <body>
-        <div class="header">
-            <a href="index.html">
-                <button>Home</button>
-            </a>
-            <a href="posts/poems.html">
-                <button>Poems</button>
-            </a>
-            <hr>
-        </div>
+        <!-- Header to be filled in via javascript -->
+        <div class="header" id="headerID"></div>
+
         <div id="poem" class="poem">
-            <h1>Apartment 151a</h1>
-            <h4>July 23, 2022</h4>
-            <p>Sometimes I hear the crying of 151b  
+            <h1 id="poem_titleID">untitled</h1>
+            <h4 id="dateID">null</h4>
+            <p id="poem_contentID">Sometimes I hear the crying of 151b  
                 The pitch implies loneliness  
                 The volume shows frustration  
                 The amount indicates despair  
@@ -35,5 +30,18 @@
                 I would do anything for the confidence to knock on 151b.
             </p>
         </div>
+
+        <script type="text/javascript" src="assets/js/header.js"></script>
+        <script>
+            var TITLE = "Apartment 151a"
+            var DATE = "July 23, 2022"
+    
+            window.onload = function() {
+                document.getElementById("web_titleID").innerHTML = TITLE + " - " + DATE
+                document.getElementById("poem_titleID").innerHTML = TITLE
+                document.getElementById("dateID").innerHTML = DATE
+                loadHeaders();
+            }
+        </script>
     </body>
 </html>

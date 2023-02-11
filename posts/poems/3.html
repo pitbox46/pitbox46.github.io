@@ -5,26 +5,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <base href = "../..">
 		
-		<title>untitled - July 16, 2022</title>
+		<title id="web_titleID">null</title>
 		
 		<link rel="stylesheet" href="assets/styles/main.css">
+    
     </head>
     <body>
-        <div class="header">
-            <a href="index.html">
-                <button>Home</button>
-            </a>
-            <a href="posts/poems.html">
-                <button>Poems</button>
-            </a>
-            <hr>
-        </div>
+        <!-- Header to be filled in via javascript -->
+        <div class="header" id="headerID"></div>
+
         <div id="poem" class="poem">
-            <h1>untitled</h1>
-            <h4>July 16, 2022</h4>
-            <p>I am stranded in endless love,  
+            <h1 id="poem_titleID">untitled</h1>
+            <h4 id="dateID">null</h4>
+            <p id="poem_contentID">I am stranded in endless love,  
                 I am loveless.
             </p>
         </div>
+
+        <script type="text/javascript" src="assets/js/header.js"></script>
+        <script>
+            var TITLE = "untitled"
+            var DATE = "July 16, 2022"
+    
+            window.onload = function() {
+                document.getElementById("web_titleID").innerHTML = TITLE + " - " + DATE
+                document.getElementById("poem_titleID").innerHTML = TITLE
+                document.getElementById("dateID").innerHTML = DATE
+                loadHeaders();
+            }
+        </script>
     </body>
 </html>
