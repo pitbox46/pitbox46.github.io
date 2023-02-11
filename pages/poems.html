@@ -28,9 +28,10 @@
             }
 
             function loadPoemList() {
-                fetch(directoryPath + "directory.json")
+                fetch(directoryPath + "directory.json", {cache:"no-cache"})
                     .then(response => response.json())
                     .then(json => {
+                        console.log(json)
                         json.forEach(poemNum => {
                             fetch(directoryPath + poemNum + ".json")
                                 .then(response => response.json())
