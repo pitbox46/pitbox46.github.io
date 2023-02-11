@@ -3,29 +3,30 @@
     <head>
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <base href="..">
+        <base href = "../">
 		
-		<title>Untitled - July 12, 2022</title>
+		<title id="web_titleID">Poems</title>
 		
 		<link rel="stylesheet" href="assets/styles/main.css">
     </head>
     <body>
-        <div class="header">
-            <a href="index.html">
-                <button>Home</button>
-            </a>
-            <a href="posts/poems.html">
-                <button>Poems</button>
-            </a>
-            <hr>
-        </div>
+        <!-- Header to be filled in via javascript -->
+        <div class="header" id="headerID"></div>
+
         <div class="post">
             <ul style="list-style-type: none;">
                 <li>1 - <a href="posts/poems/1.html">untitled - <i>July 12, 2022</i></a></li>
                 <li>3 - <a href="posts/poems/3.html">untitled - <i>July 16, 2022</i></a></li>
                 <li>5 - <a href="posts/poems/5.html">Apartment 151a - <i>July 23, 2022</i></a></li>
-                <li>5 - <a href="posts/poems/7.html">You - <i>July 25, 2022</i></a></li>
+                <li>7 - <a href="posts/poems/7.html">You - <i>July 25, 2022</i></a></li>
             </ul>
         </div>
+
+        <script type="text/javascript" src="assets/js/header.js"></script>
+        <script>
+            window.onload = function() {
+                loadHeaders();
+            }
+        </script>
     </body>
 </html>
