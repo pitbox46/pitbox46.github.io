@@ -28,7 +28,7 @@
             <p id="listHTML"></p>
         </div>
 
-        <script type="text/javascript" src="assets/js/header.js"></script>
+        <script type="text/javascript" src="assets/js/main.js"></script>
         <script>
             window.onload = function() {
                 document.getElementById("poem_listID").innerHTML = document.cookie.replaceAll("list=", "");
@@ -120,7 +120,7 @@
 
                         var script = outDoc.createElement("script");
                         script.setAttribute("type", "text/javascript");
-                        script.setAttribute("src", "assets/js/header.js");
+                        script.setAttribute("src", "assets/js/main.js");
                         outDoc.body.appendChild(script);
 
                         var stringOut = "<!DOCTYPE html><html lang=\"en\">" + outDoc.documentElement.innerHTML + "</html>";
