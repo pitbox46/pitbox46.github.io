@@ -1,63 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <base href = "../">
-		
-		<title id="web_titleID">Poems</title>
-		
-		<link rel="stylesheet" href="assets/styles/main.css">
-    </head>
-    <body>
-        <!-- Header to be filled in via javascript -->
-        <div class="header" id="headerID"></div>
 
-        <div class="post">
-            <ul style="list-style-type: none;" id="poem_listID">
-            </ul>
-        </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="../">
 
-        <script type="text/javascript" src="assets/js/header.js"></script>
-        <script>
-            var directoryPath = "https://raw.githubusercontent.com/pitbox46/pitbox46.github.io/main/posts/poems/";
+    <title id="web_titleID">Poems</title>
 
-            window.onload = function() {
-                loadPoemList();
-                loadHeaders();
-            }
+    <link rel="stylesheet" href="assets/styles/main.css">
+</head>
 
-            function loadPoemList() {
-                fetch(directoryPath + "directory.json", {cache:"no-cache"})
-                    .then(response => response.json())
-                    .then(json => {
-                        console.log(json)
-                        json.forEach(poemNum => {
-                            fetch(directoryPath + poemNum + ".json")
-                                .then(response => response.json())
-                                .then(json => {
-                                    TITLE = json.title;
-                                    DATE = new Date(json.date).toLocaleDateString('default', {
-                                        month:'long',
-                                        day:'numeric',
-                                        year:"numeric",
-                                        timeZone:"UTC"
-                                    });
-                                    var list = document.getElementById("poem_listID");
-                                    var anchor = document.createElement("a");
-                                    var italic = document.createElement("i");
-                                    italic.innerHTML = DATE;
-                                    anchor.setAttribute("href", "posts/poem.html?number="+poemNum);
-                                    anchor.innerHTML = TITLE + " - ";
-                                    anchor.appendChild(italic);
-                                    var element = document.createElement("li");
-                                    element.innerHTML = poemNum + " - ";
-                                    element.appendChild(anchor);
-                                    list.appendChild(element);
-                                });
-                        });
-                    });
-            }
-        </script>
-    </body>
+<body>
+    <!-- Header to be filled in via javascript -->
+    <div class="header" id="headerID"></div>
+
+    <div class="post">
+        <ul style="list-style-type: none;" id="poem_listID">
+            <li>1 - <a href="posts/poem.html?number=1">untitled - <i>July 12, 2022</i></a></li>
+            <li>3 - <a href="posts/poem.html?number=3">untitled - <i>July 16, 2022</i></a></li>
+            <li>5 - <a href="posts/poem.html?number=5">Apartment 151a - <i>July 23, 2022</i></a></li>
+            <li>7 - <a href="posts/poem.html?number=7">You - <i>July 25, 2022</i></a></li>
+            <li>8 - <a href="posts/poem.html?number=8">Graduation Day - <i>July 28, 2022</i></a></li>
+            <li>10 - <a href="posts/poem.html?number=10">Brutus - <i>July 29, 2022</i></a></li>
+            <li>11 - <a href="posts/poem.html?number=11">Happy Days - <i>July 31, 2022</i></a></li>
+            <li>15 - <a href="posts/poem.html?number=15">untitled - <i>August 5, 2022</i></a></li>
+            <li>23 - <a href="posts/poem.html?number=23">untitled - <i>October 10, 2022</i></a></li>
+            <li>24 - <a href="posts/poem.html?number=24">Rational Fears - <i>October 12, 2022</i></a></li>
+            <li>25 - <a href="posts/poem.html?number=25">Train - <i>October 15, 2022</i></a></li>
+            <li>27 - <a href="posts/poem.html?number=27">untitled - <i>November 21, 2022</i></a></li>
+            <li>28 - <a href="posts/poem.html?number=28">untitled - <i>November 22, 2022</i></a></li>
+            <li>29 - <a href="posts/poem.html?number=29">untitled - <i>November 23, 2022</i></a></li>
+            <li>30 - <a href="posts/poem.html?number=30">untitled - <i>November 23, 2022</i></a></li>
+            <li>31 - <a href="posts/poem.html?number=31">untitled - <i>November 24, 2022</i></a></li>
+            <li>32 - <a href="posts/poem.html?number=32">untitled - <i>November 24, 2022</i></a></li>
+            <li>33 - <a href="posts/poem.html?number=33">untitled - <i>November 24, 2022</i></a></li>
+            <li>41 - <a href="posts/poem.html?number=41">Hexed - <i>November 29, 2022</i></a></li>
+            <li>42 - <a href="posts/poem.html?number=42">Lower Your Soul - <i>November 29, 2022</i></a></li>
+            <li>43 - <a href="posts/poem.html?number=43">Mirror - <i>December 5, 2022</i></a></li>
+            <li>44 - <a href="posts/poem.html?number=44">In Time - <i>December 5, 2022</i></a></li>
+            <li>49 - <a href="posts/poem.html?number=49">Love in Death - <i>December 24, 2022</i></a></li>
+            <li>50 - <a href="posts/poem.html?number=50">Worlds - <i>December 26, 2022</i></a></li>
+            <li>51 - <a href="posts/poem.html?number=51">Modern Love - <i>December 26, 2022</i></a></li>
+            <li>52 - <a href="posts/poem.html?number=52">Bleh - <i>December 29, 2022</i></a></li>
+            <li>53 - <a href="posts/poem.html?number=53">For Allen - <i>December 31, 2022</i></a></li>
+            <li>54 - <a href="posts/poem.html?number=54">Poets - <i>December 31, 2022</i></a></li>
+            <li>55 - <a href="posts/poem.html?number=55">For Andrew - <i>January 1, 2023</i></a></li>
+            <li>56 - <a href="posts/poem.html?number=56">For Christian - <i>January 1, 2023</i></a></li>
+            <li>57 - <a href="posts/poem.html?number=57">For Alex - <i>January 2, 2023</i></a></li>
+            <li>58 - <a href="posts/poem.html?number=58">For Everyone, All the Time - <i>January 2, 2023</i></a></li>
+            <li>59 - <a href="posts/poem.html?number=59">A song of death through love - <i>January 2, 2023</i></a></li>
+            <li>60 - <a href="posts/poem.html?number=60">An Experiment in Imagery - <i>January 2, 2023</i></a></li>
+            <li>61 - <a href="posts/poem.html?number=61">For the Tired - <i>January 6, 2023</i></a></li>
+            <li>62 - <a href="posts/poem.html?number=62">Hickies from the Devil - <i>January 6, 2023</i></a></li>
+            <li>63 - <a href="posts/poem.html?number=63">Lay - <i>January 11, 2023</i></a></li>
+            <li>65 - <a href="posts/poem.html?number=65">Room - <i>January 18, 2023</i></a></li>
+            <li>69 - <a href="posts/poem.html?number=69">First time through life and death - <i>January 29, 2023</i></a></li>
+            <li>70 - <a href="posts/poem.html?number=70">mice - <i>January 29, 2023</i></a></li>
+            <li>71 - <a href="posts/poem.html?number=71">Time - <i>January 29, 2023</i></a></li>
+            <li>72 - <a href="posts/poem.html?number=72">Streams 1 - <i>February 2, 2023</i></a></li>
+            <li>73 - <a href="posts/poem.html?number=73">Streams 2 - <i>February 5, 2023</i></a></li>
+            <li>74 - <a href="posts/poem.html?number=74">our sun and the rain - <i>February 5, 2023</i></a></li>
+            <li>75 - <a href="posts/poem.html?number=75">beaches - <i>February 5, 2023</i></a></li>
+            <li>76 - <a href="posts/poem.html?number=76">A Summer Night - <i>February 10, 2023</i></a></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript" src="assets/js/header.js"></script>
+    <script>
+        var directoryPath = "https://raw.githubusercontent.com/pitbox46/pitbox46.github.io/main/posts/poems/";
+
+        window.onload = function () {
+            loadHeaders();
+        }
+    </script>
+</body>
+
 </html>
