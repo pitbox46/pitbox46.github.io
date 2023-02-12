@@ -13,3 +13,7 @@ function createButton(buttonText, ref) {
     anchor.appendChild(button)
     return anchor;
 }
+
+window.onload = function() {
+    loadHeaders();
+}

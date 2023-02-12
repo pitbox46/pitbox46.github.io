@@ -17,18 +17,21 @@
             <p>
                 Converts JSON poems into HTML poems
             </p>
+            <form onsubmit="convertJsonToHTML()">
+                <input type="file" id="filesID" name="filename" />
+                <input type="submit"/>
+            </form>
         </div>
         <div>
-            <form onsubmit="convertJsonToHTML()">
-                <input type="file" id="filesID" name="filename" multiple />
-                <input type="submit"/>
-              </form>
+            <button onclick="generateLinksHTML()">Generate HTML Links</button>
+            <ul style="list-style-type: none; font-size: 8px;" id="poem_listID"></ul>
+            <p id="listHTML"></p>
         </div>
 
         <script type="text/javascript" src="assets/js/header.js"></script>
         <script>
             window.onload = function() {
-                loadHeaders();
+                document.getElementById("poem_listID").innerHTML = document.cookie.replaceAll("list=", "");
             }
 
             function htmlTextConvert() {
@@ -60,93 +63,121 @@
             }
 
             async function convertJsonToHTML() {
-                var files = document.getElementById("filesID").files;
-                console.log(files);
-                const fileReader = new FileReader();
-
-                for(let i = 0, numFiles = files.length; i < numFiles; i++) {
-                    const file = files[i];
-                    console.log(file);
-                    const json = await parseJsonFile(file);
-
-                    var TITLE = json.title;
-                    var DATE = new Date(json.date).toLocaleDateString('default', {
-                            month:'long',
-                            day:'numeric',
-                            year:"numeric",
-                            timeZone:"UTC"
-                        });
-                    var POEM = json.poem.join("\n");
-
-                    var outDoc = document.implementation.createHTMLDocument("Output Document");
-                    
-                    var meta = outDoc.createElement("meta");
-                    meta.setAttribute("charset", "utf-8");
-                    meta.setAttribute("name", "viewport");
-                    meta.setAttribute("content", "width=device-width, initial-scale=1.0");
-                    outDoc.head.appendChild(meta);
-                    var base = outDoc.createElement("base");
-                    base.setAttribute("href", "../");
-                    outDoc.head.appendChild(base);
-                    var title = outDoc.createElement("title");
-                    title.innerHTML = TITLE + " - " + DATE;
-                    outDoc.head.appendChild(title);
-                    var link = outDoc.createElement("link");
-                    link.setAttribute("href", "assets/styles/main.css");
-                    link.setAttribute("rel", "stylesheet");
-                    outDoc.head.appendChild(link);
-
-                    var header = outDoc.createElement("header");
-                    header.setAttribute("class", "header");
-                    header.setAttribute("id", "headerID");
-                    outDoc.body.appendChild(header);
-                    var divPoem = outDoc.createElement("div");
-                    divPoem.setAttribute("class", "poem");
-                    divPoem.setAttribute("id", "poem");
-                    var poemTitle = outDoc.createElement("h1");
-                    poemTitle.innerHTML = TITLE;
-                    divPoem.appendChild(poemTitle);
-                    var poemDate = outDoc.createElement("h4");
-                    poemDate.innerHTML = DATE;
-                    divPoem.appendChild(poemDate);
-                    var poem = outDoc.createElement("p");
-                    poem.innerHTML = POEM;
-                    divPoem.appendChild(poem);
-                    outDoc.body.appendChild(divPoem);
-
-                    var script = outDoc.createElement("script");
-                    script.setAttribute("type", "text/javascript");
-                    script.setAttribute("src", "assets/js/header.js");
-                    outDoc.body.appendChild(script);
-
-                    var stringOut = "<!DOCTYPE html><html lang=\"en\">" + outDoc.documentElement.innerHTML + "</html>";
-                    download(json.number + ".html", stringOut);
+                var file = document.getElementById("filesID").files[0];
+                var fileReader = new FileReader();
+                fileReader.readAsText(file)
+                fileReader.onerror = function() {
+                    console.log(fileReader.error);
                 }
+                fileReader.onload = function() {
+                        console.log(fileReader.result)
+                        const json = JSON.parse(fileReader.result);
+                        
+                        var TITLE = json.title;
+                        var DATE = new Date(json.date).toLocaleDateString('default', {
+                                month:'long',
+                                day:'numeric',
+                                year:"numeric",
+                                timeZone:"UTC"
+                            });
+                        var POEM = json.poem.join("\n");
+                        generateLinks(json);
+                        var outDoc = document.implementation.createHTMLDocument("Output Document");
+                        
+                        var meta = outDoc.createElement("meta");
+                        meta.setAttribute("charset", "utf-8");
+                        meta.setAttribute("name", "viewport");
+                        meta.setAttribute("content", "width=device-width, initial-scale=1.0");
+                        outDoc.head.appendChild(meta);
+                        var base = outDoc.createElement("base");
+                        base.setAttribute("href", "../../");
+                        outDoc.head.appendChild(base);
+                        var title = outDoc.createElement("title");
+                        title.innerHTML = TITLE + " - " + DATE;
+                        outDoc.head.appendChild(title);
+                        var link = outDoc.createElement("link");
+                        link.setAttribute("href", "assets/styles/main.css");
+                        link.setAttribute("rel", "stylesheet");
+                        outDoc.head.appendChild(link);
 
-                async function parseJsonFile(file) {
-                    return new Promise((resolve, reject) => {
-                        const fileReader = new FileReader()
-                        fileReader.onload = event => resolve(JSON.parse(event.target.result))
-                        fileReader.onerror = error => {
-                            console.log(error)
-                            reject(error)
-                        }
-                        fileReader.readAsText(file)
-                    })
-                }
+                        var header = outDoc.createElement("header");
+                        header.setAttribute("class", "header");
+                        header.setAttribute("id", "headerID");
+                        outDoc.body.appendChild(header);
+                        var divPoem = outDoc.createElement("div");
+                        divPoem.setAttribute("class", "poem");
+                        divPoem.setAttribute("id", "poem");
+                        var poemTitle = outDoc.createElement("h1");
+                        poemTitle.innerHTML = TITLE;
+                        divPoem.appendChild(poemTitle);
+                        var poemDate = outDoc.createElement("h4");
+                        poemDate.innerHTML = DATE;
+                        divPoem.appendChild(poemDate);
+                        var poem = outDoc.createElement("p");
+                        poem.innerHTML = POEM;
+                        divPoem.appendChild(poem);
+                        outDoc.body.appendChild(divPoem);
 
-                function download(filename, text) {
-                    var element = document.createElement('a');
-                    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-                    element.setAttribute('download', filename);
+                        var script = outDoc.createElement("script");
+                        script.setAttribute("type", "text/javascript");
+                        script.setAttribute("src", "assets/js/header.js");
+                        outDoc.body.appendChild(script);
 
-                    element.style.display = 'none';
-                    document.body.appendChild(element);
+                        var stringOut = "<!DOCTYPE html><html lang=\"en\">" + outDoc.documentElement.innerHTML + "</html>";
+                        download(json.number + ".html", stringOut);
+                    }
+            }
 
-                    element.click();
+            async function parseJsonFile(file) {
+                return new Promise((resolve, reject) => {
+                    const fileReader = new FileReader()
+                    fileReader.onload = event => resolve(JSON.parse(event.target.result))
+                    fileReader.onerror = error => {
+                        console.log(error)
+                        reject(error)
+                    }
+                    fileReader.readAsText(file)
+                })
+            }
 
-                    document.body.removeChild(element);
-                }
+            function download(filename, text) {
+                var element = document.createElement('a');
+                element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                element.setAttribute('download', filename);
+
+                element.style.display = 'none';
+                document.body.appendChild(element);
+
+                element.click();
+
+                document.body.removeChild(element);
+            }
+
+            function generateLinks(json) {
+                TITLE = json.title;
+                DATE = new Date(json.date).toLocaleDateString('default', {
+                    month:'long',
+                    day:'numeric',
+                    year:"numeric",
+                    timeZone:"UTC"
+                });
+                var list = document.getElementById("poem_listID");
+                var anchor = document.createElement("a");
+                var italic = document.createElement("i");
+                italic.innerHTML = DATE;
+                anchor.setAttribute("href", "posts/poem.html?number="+json.number);
+                anchor.innerHTML = TITLE + " - ";
+                anchor.appendChild(italic);
+                var element = document.createElement("li");
+                element.innerHTML = json.number + " - ";
+                element.appendChild(anchor); 
+                list.appendChild(element);
+                document.cookie = "list=" + list.innerHTML;
+            }
+
+            function generateLinksHTML() {
+                var list = document.getElementById("poem_listID");
+                document.getElementById("listHTML").textContent = list.innerHTML;
             }
         </script>
     </body>
