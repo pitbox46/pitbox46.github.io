@@ -20,7 +20,7 @@ function removeHTMLExtension() {
     if(window.location.href.startsWith("https://pitbox46.github.io")) {
         var elements = document.getElementsByTagName("a");
         for(let i = 0; i < elements.length; i++) {
-            var element = elements.item[i];
+            var element = elements[i];
             if(element.getAttribute("href").endsWith(".html")) {
                 element.setAttribute("href", element.getAttribute("href").replace(".html", ""));
             }
