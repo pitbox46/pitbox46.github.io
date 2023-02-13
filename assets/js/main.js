@@ -2,6 +2,7 @@ function loadHeaders() {
     var header = document.getElementById("headerID")
     header.appendChild(createButton("Home", "index.html"))
     header.appendChild(createButton("Poems", "pages/poems.html"))
+    header.appendChild(createButton("Music", "pages/music.html"))
     header.appendChild(document.createElement("hr"))
 }
 

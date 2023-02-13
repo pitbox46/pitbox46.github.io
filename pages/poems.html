@@ -17,8 +17,8 @@
     <div class="header" id="headerID"></div>
 
     <div class="post">
-        <button onclick="randomPoem()">Random Poem</button>
-        <ul id="poem_listID">
+        <button onclick="randomPost()">Random Poem</button>
+        <ul id="posts">
             <li>1 - <a href="posts/poems/1.html">untitled - <i>July 12, 2022</i></a></li>
             <li>3 - <a href="posts/poems/3.html">untitled - <i>July 16, 2022</i></a></li>
             <li>5 - <a href="posts/poems/5.html">Apartment 151a - <i>July 23, 2022</i></a></li>
@@ -70,15 +70,15 @@
 
     <script type="text/javascript" src="assets/js/main.js"></script>
     <script>
-        function randomPoem() {
-            const lines = document.getElementById("poem_listID").getElementsByTagName("a");
+        function randomPost() {
+            const lines = document.getElementById("posts").getElementsByTagName("a");
             console.log(lines);
             const url = lines[Math.floor(Math.random() * lines.length)].getAttribute("href");
             const tempAnchor = document.createElement("a");
             tempAnchor.setAttribute("href", url);
-            document.getElementById("poem_listID").appendChild(tempAnchor);
+            document.getElementById("posts").appendChild(tempAnchor);
             tempAnchor.click()
-            document.getElementById("poem_listID").removeChild(tempAnchor);
+            document.getElementById("posts").removeChild(tempAnchor);
         }
     </script>
 </body>

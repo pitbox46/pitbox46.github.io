@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="../">
+
+    <title id="web_titleID">Music</title>
+
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/cassette.png">
+</head>
+
+<body>
+    <!-- Header to be filled in via javascript -->
+    <div class="header" id="headerID"></div>
+
+    <div class="post">
+        <button onclick="randomPost()">Random Music</button>
+        <ul id="posts">
+            <li><a href="posts/music/ambient_1.html">Ambient 1 - Humans of the past</a></li>
+            <li><a href="posts/music/an_impossible_dream.html">An Impossible Dream</a></li>
+            <li><a href="posts/music/ambient_2.html">Ambient 2 - Smoking</a></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script>
+        function randomPost() {
+            const lines = document.getElementById("posts").getElementsByTagName("a");
+            console.log(lines);
+            const url = lines[Math.floor(Math.random() * lines.length)].getAttribute("href");
+            const tempAnchor = document.createElement("a");
+            tempAnchor.setAttribute("href", url);
+            document.getElementById("posts").appendChild(tempAnchor);
+            tempAnchor.click()
+            document.getElementById("posts").removeChild(tempAnchor);
+        }
+    </script>
+</body>
+
+</html>
