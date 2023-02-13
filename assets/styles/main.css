@@ -73,4 +73,5 @@ button:hover {
 }
 .poem p {
     white-space: pre-line;
+    max-width: 75ch;
 }
