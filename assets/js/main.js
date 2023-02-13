@@ -3,6 +3,7 @@ function loadHeaders() {
     header.appendChild(createButton("Home", "index.html"))
     header.appendChild(createButton("Poems", "pages/poems.html"))
     header.appendChild(createButton("Music", "pages/music.html"))
+    header.appendChild(createButton("About", "pages/about.html"))
     header.appendChild(document.createElement("hr"))
 }
 

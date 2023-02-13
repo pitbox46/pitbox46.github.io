@@ -30,6 +30,14 @@ button:hover {
     background-color: rgba(var(--button_hover_col), 0.25);
     border: 2px solid rgba(var(--button_hover_col), 0.4);
 }
+img {
+    width:30%; 
+    height:30%;
+    border:3px solid rgba(var(--button_col), 0.5)
+}
+.blocks.container {
+    display:table-cell;
+}
 
 .header {
     color: black;
