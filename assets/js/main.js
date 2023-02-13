@@ -16,6 +16,18 @@ function createButton(buttonText, ref) {
     return anchor;
 }
 
+function removeHTMLExtension() {
+    if(window.location.href.startsWith("https://pitbox46.github.io")) {
+        var elements = document.getElementsByTagName("a");
+        elements.forEach(element => {
+            if(element.getAttribute("href").endsWith(".html")) {
+                element.setAttribute("href", element.getAttribute("href").replace(".html", ""));
+            }
+        });
+    }
+}
+
 window.onload = function() {
     loadHeaders();
+    removeHTMLExtension();
 }
