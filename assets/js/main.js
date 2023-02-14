@@ -1,6 +1,9 @@
 function loadHeaders() {
     var header = document.getElementById("headerID")
-    header.appendChild(createButton("Home", "index.html"))
+    if(isNonLocal())
+        header.appendChild(createButton("Home", "/"))
+    else 
+        header.appendChild(createButton("Home", "index.html"))
     header.appendChild(createButton("Poems", "pages/poems.html"))
     header.appendChild(createButton("Music", "pages/music.html"))
     header.appendChild(createButton("About", "pages/about.html"))
@@ -17,7 +20,7 @@ function createButton(buttonText, ref) {
 }
 
 function removeHTMLExtension() {
-    if(window.location.href.startsWith("https://pitbox46.github.io")) {
+    if(isNonLocal()) {
         var elements = document.getElementsByTagName("a");
         for(let i = 0; i < elements.length; i++) {
             var element = elements[i];
@@ -26,6 +29,10 @@ function removeHTMLExtension() {
             }
         }
     }
+}
+
+function isNonLocal() {
+    return window.location.href.startsWith("https://pitbox46.github.io")
 }
 
 window.onload = function() {
