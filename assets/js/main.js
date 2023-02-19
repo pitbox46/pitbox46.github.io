@@ -35,7 +35,14 @@ function isNonLocal() {
     return window.location.href.startsWith("https://pitbox46.github.io")
 }
 
+const loadListeners = [loadHeaders, removeHTMLExtension];
+
+function addLoadListener(func) {
+    loadListeners.push(func)
+} 
+
 window.onload = function() {
-    loadHeaders();
-    removeHTMLExtension();
+    loadListeners.forEach(func => {
+        func()
+    });
 }
