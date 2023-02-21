@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <title id="pageTitle">null</title>
+    <link href="assets/styles/main.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/poem.png">
+</head>
+
+<body>
+    <header class="header" id="headerID"></header>
+    <div class="poem" id="poem">
+        <h1 id="title">null</h1>
+        <h4 id="date">null</h4>
+        <p id="content">A light blinks my room
+            How beautiful is the night
+            Tears fall from the sky
+        </p>
+    </div>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script>
+        const TITLE = "Haiku 1";
+        const DATE = "February 21, 2023";
+        addLoadListener(function() {
+            document.getElementById("title").innerHTML = TITLE;
+            document.getElementById("date").innerHTML = DATE;
+            document.getElementById("pageTitle").innerHTML = TITLE + " - " + DATE;
+        });
+    </script>
+</body>
+
+</html>

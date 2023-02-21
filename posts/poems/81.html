@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <title id="pageTitle">null</title>
+    <link href="assets/styles/main.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/poem.png">
+</head>
+
+<body>
+    <header class="header" id="headerID"></header>
+    <div class="poem" id="poem">
+        <h1 id="title">null</h1>
+        <h4 id="date">null</h4>
+        <p id="content">The heartbroken soul has an infinite capacity to harm. From outside, it looks irrational, nonsensical, clinically insane. It is. We somehow know that while we're there, but we'll try anything to stop the pain anyways. Even if it kills us. Even if we kill us. We just need something to get us through today even if it fucks us tomorrow.
+
+            If you've never been there, I'm not asking you for pity. I just want you to understand that some days I can't get out of bed until two. I wish I could. We all do. It's not that easy.
+        </p>
+    </div>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script>
+        const TITLE = "Streams 3";
+        const DATE = "February 18, 2023";
+        addLoadListener(function() {
+            document.getElementById("title").innerHTML = TITLE;
+            document.getElementById("date").innerHTML = DATE;
+            document.getElementById("pageTitle").innerHTML = TITLE + " - " + DATE;
+        });
+    </script>
+</body>
+
+</html>
