@@ -26,7 +26,7 @@ body {
 }
 button {
     transition-duration: 500ms;
-    color: rgb(var(--background_col));
+    color: rgb(var(--text_col));
     background-color: rgba(var(--button_col), 0.5);
     font-size: 14px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -45,7 +45,7 @@ button:hover {
 img {
     width:30%; 
     height:30%;
-    border:3px solid rgba(var(--button_col), 0.5)
+    border:3px solid rgba(var(--button_col), 0.5);
 }
 
 .video {
