@@ -43,6 +43,8 @@ function addLoadListener(func) {
 
 window.onload = function() {
     loadListeners.forEach(func => {
-        func()
+        func();
     });
+    var title = document.getElementsByTagName("title")[0];
+    title.innerHTML = title.innerHTML + " - pitbox46.github.io"
 }
