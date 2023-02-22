@@ -8,7 +8,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background_col: 15, 25, 25;
+        --background_col: 25, 25, 35;
         --text_col: 255, 255, 255;
         --button_col: 255, 150, 50;
         --button_hover_col: 0, 220, 50;
