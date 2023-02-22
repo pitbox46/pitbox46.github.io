@@ -2,7 +2,7 @@
     --background_col: 245, 240, 230;
     --text_col: 0, 0, 0;
     --button_col: 255, 150, 50;
-    --button_hover_col: 0, 220, 50;
+    --button_hover_col: 110, 110, 255;
     --button_hover_text_col: 0, 0, 255;
 }
 
@@ -11,7 +11,7 @@
         --background_col: 25, 25, 35;
         --text_col: 255, 255, 255;
         --button_col: 255, 150, 50;
-        --button_hover_col: 0, 220, 50;
+        --button_hover_col: 110, 110, 255;
         --button_hover_text_col: 100, 100, 255;
     }
     a:link {
