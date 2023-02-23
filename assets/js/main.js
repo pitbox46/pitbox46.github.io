@@ -48,3 +48,19 @@ window.onload = function() {
     var title = document.getElementsByTagName("title")[0];
     title.innerHTML = title.innerHTML + " - pitbox46.github.io"
 }
+
+function populatePoemInfo(title, date) {
+    document.getElementById("title").innerHTML = title;
+    document.getElementById("date").innerHTML = date;
+    document.getElementById("pageTitle").innerHTML = title + " - " + date;
+}
+
+function populatePoem(content) {
+    const contentDiv = document.getElementById("content");
+    var lines = content.replaceAll("\n\n", "\n<br>\n").split("\n");
+    for (var i = 0; i < lines.length; i++) {
+        var p = document.createElement("p");
+        p.innerHTML = lines[i];
+        contentDiv.appendChild(p);
+    }
+}

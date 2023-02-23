@@ -118,3 +118,9 @@ img {
     white-space: pre-line;
     max-width: 75ch;
 }
+.poem .indent p {
+    margin-left: 4ch;
+    text-indent: -4ch;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
