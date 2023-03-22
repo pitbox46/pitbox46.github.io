@@ -21,6 +21,17 @@
         <ul id="posts">
         </ul>
     </div>
+    <div class="about">
+        <h3>Why I love poems</h3>
+        <p>
+            Poetry is a dead art only if language has died and we become creatures who remotely, telepathically, and
+            concisely can send each other our empathies, sympathies, and apathies. Poetry exists to mask our thoughts
+            and emotions behind layers and layers of beautiful images, rhythms, rhymes, and contrasts. The complexity
+            that we pile on when we write represents, in some way, the complex and nuanced thoughts we have towards the
+            subject. It also serves as an exercise to the readers who are tasked with searching for the various
+            meanings. It is beautiful.
+        </p>
+    </div>
 
     <script type="text/javascript" src="assets/js/main.js"></script>
     <script>
@@ -48,7 +59,7 @@
             return li;
         }
 
-        addLoadListener(function() {
+        addLoadListener(function () {
             const posts = document.getElementById("posts");
             posts.appendChild(createPoemForList(1, "untitled", "July 12, 2022"))
             posts.appendChild(createPoemForList(3, "untitled", "July 16, 2022"))
