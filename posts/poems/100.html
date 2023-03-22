@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <title id="pageTitle">null</title>
+    <link href="assets/styles/main.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/poem.png">
+</head>
+
+<body>
+    <header class="header" id="headerID"></header>
+    <div class="poem" id="poem">
+        <h1 id="title">null</h1>
+        <h4 id="date">null</h4>
+        <div id="content" class="indent"></div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script>
+        addLoadListener(function(){populatePoemInfo("manor", "March 22, 2023")});
+        addLoadListener(function(){populatePoem(
+`Love, loss, laments all arrive
+exclusively - uniquely
+at the domain of majesty
+or more specifically
+the land of whimsy and bloat
+They waltz their way into the ball room
+mingling - poisoning each other
+lofting fragrances of sugar around
+leaving - laughing at us
+languidly looking at flowers
+limited by lethargy - burning eyes
+They scan the fruit like fields
+for further burnings yet to be
+or better yet
+to swim - blend into each other
+Love, loss, laments all leave
+`
+        )});
+    </script>
+</body>
+
+</html>
