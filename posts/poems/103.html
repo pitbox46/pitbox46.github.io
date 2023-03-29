@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <title id="pageTitle">null</title>
+    <link href="assets/styles/main.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/poem.png">
+</head>
+
+<body>
+    <header class="header" id="headerID"></header>
+    <div class="poem" id="poem">
+        <h1 id="title">null</h1>
+        <h4 id="date">null</h4>
+        <div id="content" class="indent"></div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script>
+        addLoadListener(function(){populatePoemInfo("roses", "March 28, 2023")});
+        addLoadListener(function(){populatePoem(
+`Anxiety smells like citrus
+If it were combined with
+Copious amounts of caffeine
+Some hints of black mold too
+And an aftertaste of rose
+
+Anxiety looks like that man
+The one staring at you in the mirror
+Wearing a happy pineapple shirt
+A face that makes you cry if you look too close
+And a shadow of a rose
+
+Confidence is like fine china
+If you even dare to look at yourself, it's broke
+If you think you're a good person, you're not
+You don't even know yourself
+
+You wish you could stop for the roses
+`
+        )});
+    </script>
+</body>
+
+</html>
