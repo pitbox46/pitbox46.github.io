@@ -64,3 +64,10 @@ function populatePoem(content) {
         contentDiv.appendChild(p);
     }
 }
+
+function populateProse(content) {
+    const contentDiv = document.getElementById("content");
+    var p = document.createElement("p");
+    p.innerHTML = content;
+    contentDiv.appendChild(p);
+}
