@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <title id="pageTitle">null</title>
+    <link href="assets/styles/main.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/poem.png">
+</head>
+
+<body>
+    <header class="header" id="headerID"></header>
+    <div class="poem" id="poem">
+        <h1 id="title">null</h1>
+        <h4 id="date">null</h4>
+        <div id="content" class="indent"></div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script>
+        addLoadListener(function(){populatePoemInfo("Cloud Song", "April 3, 2023")});
+        addLoadListener(function(){populatePoem(
+`Clouds
+in the corner of my window 
+on the pillow of my bed
+streaking across the corner 
+forever
+and ever
+
+Trains
+somewhere in the distance
+through the walls of my room
+sounding its horn through my window
+for seconds
+not minutes
+
+Laces of cloth cover my eyes
+not yours or his,
+but mine
+
+Paralyzed
+Indignant relaxation
+A head full of clouds
+`
+        )});
+    </script>
+</body>
+
+</html>
