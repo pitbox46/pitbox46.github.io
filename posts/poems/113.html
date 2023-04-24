@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <title id="pageTitle">null</title>
+    <link href="assets/styles/main.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/poem.png">
+</head>
+
+<body>
+    <header class="header" id="headerID"></header>
+    <div class="poem" id="poem">
+        <h1 id="title">null</h1>
+        <h4 id="date">null</h4>
+        <div id="content" class="indent"></div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script>
+        addLoadListener(function(){populatePoemInfo("Skulls and Thoughts", "April 22, 2023")});
+        addLoadListener(function(){populatePoem(
+`The trees are singing tonight, out there
+Through the speckled abyss beyond the window
+Yes, today it rained knifes ruthlessly
+Maybe we reached a culdesac in life
+
+But the trees are singing tonight, out there
+Between the wastes and debris of us
+There's an amber eye staring, glaring 
+Hoping we finish this game we play again
+
+Again we stare through that amber eye'd skull
+Listen to the trees tonight, out there
+That skull wanted us forever yesterday
+And it leaves us alone just for today 
+
+Thank the leaves for rustling tonight
+Who are we without their natural influence
+Thank the abyss for sparing us tonight
+Who are we without that eternal reminder
+
+That that skull for staring not tonight
+May we rest forever tonight
+`
+        )});
+    </script>
+</body>
+
+</html>
