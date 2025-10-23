@@ -2,4 +2,4 @@
 title: Mason Griswold
 ---
 
-![[Mason-Cool.jpg]]
+![[Mason-Cool.jpg|200]]
