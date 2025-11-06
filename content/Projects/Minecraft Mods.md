@@ -4,7 +4,7 @@ author: "Mason Griswold"
 ---
 
 [Curseforge](https://www.curseforge.com/members/pitbox46/projects) |
-[GitHub](https://github.com/pitbox46)
+ [GitHub](https://github.com/pitbox46)
 
 ---
 
@@ -43,4 +43,4 @@ Some of these projects were done collaboratively, such as my work on NightmareCr
 
 [^2]:
     During my time with Divine Gaming, I was unaware of the company's association with
-    Twin Flames. I do not endorse Twin Flames and maintain no current relationship with them.
+    Twin Flames. I do not endorse either organization and maintain no current relationship with them.
