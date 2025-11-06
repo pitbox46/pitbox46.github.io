@@ -14,12 +14,12 @@ is a collection of images that vary slightly in perspective.
 When these images are animated together, they create an illusion of depth.
 
 <!-- markdownlint-disable-next-line MD033 MD013 -->
-<img src="https://upload.wikimedia.org/wikipedia/en/2/27/Test_of_3-d_wiggle_for_FPC.gif" alt="Example" width="400"/>
+<img src="https://upload.wikimedia.org/wikipedia/en/2/27/Test_of_3-d_wiggle_for_FPC.gif" alt="Example" width="50%"/>
 
 ## Lens-Based Wigglegrams
 
 <!-- markdownlint-disable-next-line MD033 -->
-<img src="../../media/EweWiggle.jpg" alt="EweWiggle" width="400"/>
+<img src="../../media/EweWiggle.jpg" alt="EweWiggle" width="50%"/>
 
 EweWiggle is a 3d printed wigglegram lens that uses some off-the-shelf glass from
 [SurplusShed](https://www.surplusshed.com/).
@@ -66,12 +66,12 @@ closer or further away.
 
 <!-- markdownlint-disable MD033 -->
 <div display="flex">
-    <img src="../../media/EweMirror.webp" alt="EweMirror on Camera" width="30%"/>
-    <img src="../../media/EweMirror_2.webp" alt="EweMirror" width="30%"/>
+    <img src="../../media/EweMirror.webp" alt="EweMirror on Camera" width="45%"/>
+    <img src="../../media/EweMirror_2.webp" alt="EweMirror" width="45%"/>
 </div>
-<details width="30%">
+<details>
     <summary>Flashing Lights Warning!</summary>
-    <img src="../../media/EweMirror.gif" alt="EweMirror" width="30%"/>
+    <img src="../../media/EweMirror.gif" alt="EweMirror" width="50%"/>
 </details>
 <!-- markdownlint-enable MD033 -->
 
